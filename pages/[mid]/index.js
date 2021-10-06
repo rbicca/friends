@@ -17,7 +17,7 @@ export async function getStaticPaths(){
     const data = await eventos.find({}, { _id: 1}).toArray();
 
     return {
-        fallback: false,
+        fallback: 'blocking',
         paths: data.map(e => ({ params: { mid: e._id.toString() } }))
         
         //paths: [
